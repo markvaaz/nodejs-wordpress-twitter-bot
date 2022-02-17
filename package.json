@@ -1,0 +1,23 @@
+{
+  "dependencies": {
+    "dotenv": "^16.0.0",
+    "express": "^4.17.2",
+    "he": "^1.2.0",
+    "mongoose": "^6.2.1",
+    "nodemon": "^2.0.15",
+    "puppeteer": "^13.3.2",
+    "request": "^2.88.2",
+    "twitter": "^1.7.1",
+    "twitter-lite": "^1.1.0"
+  },
+  "scripts": {
+    "start": "node server.js",
+    "dev": "nodemon server.js"
+  },
+  "name": "wordpress-social-bot",
+  "version": "1.0.0",
+  "description": "A bot to auto post",
+  "main": "server.js",
+  "author": "",
+  "license": "ISC"
+}
