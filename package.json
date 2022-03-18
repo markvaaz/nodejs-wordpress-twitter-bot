@@ -8,8 +8,7 @@
     "puppeteer": "^13.3.2",
     "request": "^2.88.2",
     "twitter": "^1.7.1",
-    "twitter-lite": "^1.1.0",
-    "cors": "^2.8.5"
+    "twitter-lite": "^1.1.0"
   },
   "scripts": {
     "start": "node server.js",
