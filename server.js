@@ -47,6 +47,10 @@ app.post('/game/:steam_id', (req, res) => {
   });
 });
 
+app.get('/.well-known/pki-validation/69D4BBE5E26394BA2F27618434E028E5.txt', (req, res) =>{
+  res.sendFile('69D4BBE5E26394BA2F27618434E028E5.txt' , { root : __dirname});
+});
+
 setInterval(autoPost, 120000);
 
 app.listen(process.env.PORT || 3000, console.log("Conectado!"))
