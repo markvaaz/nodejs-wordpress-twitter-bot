@@ -42,11 +42,9 @@ app.get("/", (req, res) => {
 });
 
 app.post('/game/:steam_id', (req, res) => {
-  let response;
-  request(`https://store.steampowered.com/api/appdetails?appids=${req.params.steam_id}&cc=brazilian&l=portuguese`, { json:true }, async (err, res, body) => {
-    response = res.body
+  request(`https://store.steampowered.com/api/appdetails?appids=${req.params.steam_id}&cc=brazilian&l=portuguese`, { json:true }, async (err, response, body) => {
+    res.send(body);
   });
-  res.send(response);
 });
 
 setInterval(autoPost, 120000);
