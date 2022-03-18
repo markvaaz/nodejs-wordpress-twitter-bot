@@ -9,8 +9,11 @@ const mongoose = require("mongoose");
 const Posts = require("./models/posts");
 const he = require("he");
 const req = require("express/lib/request");
+const cors = require('cors');
 
 mongoose.connect(process.env.DB, { useUnifiedTopology:true, useNewUrlParser:true }, () => console.log("Banco de dados conectado!"));
+
+app.use(cors());
 
 const autoPost = () => {
   console.log("Verificando novos posts");
@@ -38,8 +41,12 @@ app.get("/", (req, res) => {
   res.send(`<style>body{background:#1c1c1c;}h1{font-family:sans-serif; position:absolute; top:50%; left:50%; transform:translate(-50%, -50%); color:#fff;}h1:after{background:green; content:""; width:25px; height:25px; display:block; position:absolute; right:0; top:50%; transform:translate(120%, -50%); border-radius:50%;}</style><h1>CONECTADO</h1>`);
 });
 
-app.post("/daily", (req, res) => {
-  
+app.post('/game/:steam_id', (req, res) => {
+  let response;
+  request(`https://store.steampowered.com/api/appdetails?appids=${req.params.steam_id}&cc=brazilian&l=portuguese`, { json:true }, async (err, res, body) => {
+    response = res.body
+  });
+  res.send(response);
 });
 
 setInterval(autoPost, 120000);
